@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+}
+
+.container {
+	font-family: sans-serif;
+	scroll-snap-type: mandatory;
+	scroll-snap-points-y: repeat(100vw);
+	scroll-snap-type: x mandatory;
+	display: flex;
+	overflow-x: scroll;
+}
+
+.container-page {
+	border-right: 1px solid white;
+	min-width: 100vw;
+	height: 100vh;
+	scroll-snap-align: start;
+	text-align: center;
+	position: relative;
+}
