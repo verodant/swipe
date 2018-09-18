@@ -11,6 +11,10 @@ body {
 	overflow-x: scroll;
 }
 
+.smooth {
+	scroll-behavior: smooth;  /*TOCHECK*/
+}
+
 .container-page {
 	border-right: 1px solid white;
 	min-width: 100vw;
@@ -18,4 +22,5 @@ body {
 	scroll-snap-align: start;
 	text-align: center;
 	position: relative;
+	
 }
