@@ -13,26 +13,16 @@ function restart() {
     threshold: [0, 1]
   };
 
-  function isVisible(ele) {
-    return (
-      ele.clientWidth !== 0 &&
-      ele.clientHeight !== 0 &&
-      ele.style.opacity !== 0 &&
-      ele.style.visibility !== "hidden"
-    );
-  }
-
   const callback = function(entries, observer) {
     entries.forEach(function(entry) {
       if (entry.intersectionRatio != 1) {
         let direction;
         if (entry.boundingClientRect.left > 0) direction = "left";
         else direction = "right";
-        console.log("paro " + direction);
+       
         observer.unobserve(entry.target);
         //console.log(document.querySelectorAll(".container-page")[1])
         if (direction == "left") {
-
           container.removeChild(container.children[2]);
           let el = document.createElement("div");
           el.classList.add("container-page");
@@ -49,17 +39,14 @@ function restart() {
             container.classList.add("smooth");
             observer.observe(actual);
           }, 100);
-          
         } else {
-            container.removeChild(container.children[0]);
+          container.removeChild(container.children[0]);
           let el = document.createElement("div");
           el.classList.add("container-page");
           el.style.backgroundColor = getRandomColor();
           let actual = container.children[1];
           setTimeout(function() {
             container.appendChild(el);
-
-           
             observer.observe(actual);
           }, 100);
         }
@@ -80,4 +67,8 @@ window.addEventListener("DOMContentLoaded", function(e) {
   });
   container.classList.add("smooth");
 });
-restart();
+
+import { Swipe } from './Swipe.js';
+
+
+window.s = new Swipe(document.getElementById("container"))
