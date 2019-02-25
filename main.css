@@ -11,10 +11,6 @@ body {
 	overflow-x: scroll;
 }
 
-.smooth {
-	scroll-behavior: smooth;  /*TOCHECK*/
-}
-
 .container-page {
 	border-right: .1px solid transparent;
 	border-left: .1px solid transparent;
