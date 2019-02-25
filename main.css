@@ -16,7 +16,8 @@ body {
 }
 
 .container-page {
-	border-right: 1px solid white;
+	border-right: .1px solid transparent;
+	border-left: .1px solid transparent;
 	min-width: 100vw;
 	height: 100vh;
 	scroll-snap-align: start;
