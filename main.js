@@ -21,8 +21,10 @@ function restart() {
         else direction = "right";
        
         observer.unobserve(entry.target);
+        console.log(direction)
         //console.log(document.querySelectorAll(".container-page")[1])
         if (direction == "left") {
+          
           container.removeChild(container.children[2]);
           let el = document.createElement("div");
           el.classList.add("container-page");
@@ -65,10 +67,10 @@ window.addEventListener("DOMContentLoaded", function(e) {
   selected.scrollIntoView({
     behavior: "instant"
   });
-  container.classList.add("smooth");
+ 
 });
 
-import { Swipe } from './Swipe.js';
+ import { Swipe } from './Swipe.js';
 
 
-window.s = new Swipe(document.getElementById("container"))
+window.s = new Swipe(document.getElementById("container")) 

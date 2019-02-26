@@ -7,9 +7,26 @@ function getRandomColor() {
   return color;
 }
 
+function throttled(delay, fn) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = (new Date).getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  }
+}
+
+
 export class Swipe {
   _isSwipe(entry) {
     return entry.intersectionRatio != 1;
+  }
+
+  _throttledAction(){
+
   }
 
   _swipeAction(entry) {
@@ -33,20 +50,21 @@ export class Swipe {
     const actual = this.container.children[DIRECTION == "left" ? 0 : 1];
     
     setTimeout(_ => {
+      console.log(DIRECTION)
       if (DIRECTION == "left") {
         this.container.insertBefore(el, actual);
         actual.scrollIntoView({
           behavior: "instant"
         });   
       } else {
-        this.container.appendChild(el);
+        this.container.insertBefore(el, actual.nenextSibling);
       }
       this.observer.observe(actual);
     }, 50);
   }
-
-  _entryAction(el, entry, observer) {
-    if (this._isSwipe(entry)) this._swipeAction(entry, observer);
+  
+  _entryAction(el, entry) {
+    if (this._isSwipe(entry)) this._swipeAction(entry);
   }
 
   constructor(swipeContainer) {
