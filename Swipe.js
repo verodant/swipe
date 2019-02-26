@@ -69,11 +69,14 @@ export class Swipe {
 
   constructor(swipeContainer) {
     this.container = swipeContainer;
+    this._actionBlocked = false;
+
     const options = {
       root: swipeContainer,
       rootMargin: "100%",
       threshold: [0, 1]
     };
+    
     const callback = entries => entries.forEach(this._entryAction.bind(this, ...arguments));
     this.observer = new IntersectionObserver(callback, options);
     this.observer.observe(swipeContainer.children[1]);
