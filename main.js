@@ -1,4 +1,4 @@
-function getRandomColor() {
+/* function getRandomColor() {
   var letters = "0123456789ABCDEF";
   var color = "#";
   for (var i = 0; i < 6; i++) {
@@ -13,24 +13,24 @@ function restart() {
     threshold: [0, 1]
   };
 
-  const callback = function(entries, observer) {
-    entries.forEach(function(entry) {
+  const callback = function (entries, observer) {
+    entries.forEach(function (entry) {
       if (entry.intersectionRatio != 1) {
         let direction;
         if (entry.boundingClientRect.left > 0) direction = "left";
         else direction = "right";
-       
+
         observer.unobserve(entry.target);
         console.log(direction)
         //console.log(document.querySelectorAll(".container-page")[1])
         if (direction == "left") {
-          
+
           container.removeChild(container.children[2]);
           let el = document.createElement("div");
           el.classList.add("container-page");
           el.style.backgroundColor = getRandomColor();
           let actual = container.children[0];
-          setTimeout(function() {
+          setTimeout(function () {
             container.insertBefore(el, actual);
 
             container.classList.remove("smooth");
@@ -47,7 +47,7 @@ function restart() {
           el.classList.add("container-page");
           el.style.backgroundColor = getRandomColor();
           let actual = container.children[1];
-          setTimeout(function() {
+          setTimeout(function () {
             container.appendChild(el);
             observer.observe(actual);
           }, 100);
@@ -62,15 +62,10 @@ function restart() {
   const selected = document.getElementById("selected");
 
   observer.observe(document.querySelectorAll(".container-page")[1]);
-}
-window.addEventListener("DOMContentLoaded", function(e) {
-  selected.scrollIntoView({
-    behavior: "instant"
-  });
- 
-});
+} */
 
- import { Swipe } from './Swipe.js';
+
+import { Swipe } from './Swipe.js';
 
 
 window.s = new Swipe(document.getElementById("container")) 
